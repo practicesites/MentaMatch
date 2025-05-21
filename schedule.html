@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="fr" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sessions - MentaMatch</title>
+    <link href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Dashboard Layout with Sidebar -->
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <nav id="sidebar" class="sidebar">
+            <div class="sidebar-header">
+                <a href="dashboard.html" class="d-flex align-items-center text-decoration-none">
+                    <i class="fas fa-handshake me-2 fs-4"></i>
+                    <span class="fs-4 fw-bold">MentaMatch</span>
+                </a>
+                <button type="button" id="sidebarCollapseBtn" class="d-md-none border-0 bg-transparent text-white">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="sidebar-user text-center py-4">
+                <img src="https://ui-avatars.com/api/?name=Jean+Dupont&background=random&color=fff&size=128" alt="Jean Dupont" class="avatar mb-3">
+                <h5 class="mb-1">Jean Dupont</h5>
+                <p class="text-body-secondary mb-0 small">Mentoré • Tech</p>
+            </div>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a href="dashboard.html" class="nav-link">
+                        <i class="fas fa-home me-2"></i>
+                        <span>Tableau de bord</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="profile.html" class="nav-link">
+                        <i class="fas fa-user me-2"></i>
+                        <span>Mon profil</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="messaging.html" class="nav-link">
+                        <i class="fas fa-comments me-2"></i>
+                        <span>Messagerie</span>
+                        <span class="badge bg-primary rounded-pill ms-auto">3</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="schedule.html" class="nav-link active">
+                        <i class="fas fa-calendar-alt me-2"></i>
+                        <span>Sessions</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#resources" class="nav-link collapsed" data-bs-toggle="collapse" aria-expanded="false">
+                        <i class="fas fa-book me-2"></i>
+                        <span>Ressources</span>
+                        <i class="fas fa-chevron-down ms-auto small"></i>
+                    </a>
+                    <div class="collapse" id="resources">
+                        <ul class="nav flex-column ms-3 small">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="fas fa-file-alt me-2"></i>
+                                    <span>Générateur de CV</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="fas fa-chart-line me-2"></i>
+                                    <span>Suivi de progression</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="fas fa-graduation-cap me-2"></i>
+                                    <span>Formations</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="subscription.html" class="nav-link">
+                        <i class="fas fa-credit-card me-2"></i>
+                        <span>Abonnement</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-cog me-2"></i>
+                        <span>Paramètres</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="sidebar-footer">
+                <a href="index.html" class="btn btn-outline-light btn-sm w-100">
+                    <i class="fas fa-sign-out-alt me-2"></i>
+                    <span>Déconnexion</span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Navigation -->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top border-bottom">
+                <div class="container-fluid">
+                    <button type="button" id="sidebarCollapse" class="btn btn-link d-md-none text-light me-3">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="d-flex align-items-center">
+                        <h5 class="mb-0">Sessions de mentorat</h5>
+                    </div>
+                    <ul class="navbar-nav ms-auto d-flex flex-row">
+                        <li class="nav-item dropdown me-3">
+                            <a class="nav-link position-relative" href="#" id="notificationsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-bell"></i>
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    2
+                                </span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationsDropdown">
+                                <h6 class="dropdown-header">Notifications</h6>
+                                <a class="dropdown-item" href="#">
+                                    <div class="d-flex align-items-center">
+                                        <div class="flex-shrink-0">
+                                            <div class="avatar avatar-sm bg-info-subtle text-info rounded-circle">
+                                                <i class="fas fa-calendar-check"></i>
+                                            </div>
+                                        </div>
+                                        <div class="flex-grow-1 ms-3">
+                                            <p class="mb-0 small">Nouvelle session planifiée avec Marie Lefevre</p>
+                                            <p class="text-body-secondary small mb-0">Il y a 30 minutes</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <div class="d-flex align-items-center">
+                                        <div class="flex-shrink-0">
+                                            <div class="avatar avatar-sm bg-primary-subtle text-primary rounded-circle">
+                                                <i class="fas fa-comment-alt"></i>
+                                            </div>
+                                        </div>
+                                        <div class="flex-grow-1 ms-3">
+                                            <p class="mb-0 small">Nouveau message de Pierre Martin</p>
+                                            <p class="text-body-secondary small mb-0">Il y a 1 heure</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item text-center small" href="#">Voir toutes les notifications</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="https://ui-avatars.com/api/?name=Jean+Dupont&background=random&color=fff&size=32" alt="Jean Dupont" class="avatar-sm rounded-circle me-2">
+                                <span class="d-none d-lg-inline">Jean Dupont</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                                <li><a class="dropdown-item" href="profile.html">Mon profil</a></li>
+                                <li><a class="dropdown-item" href="#">Paramètres</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="index.html">Déconnexion</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Schedule Content -->
+            <div class="container-fluid p-4">
+                <!-- Action Buttons -->
+                <div class="row mb-4">
+                    <div class="col-12 d-flex justify-content-between align-items-center flex-wrap gap-2">
+                        <div class="d-flex align-items-center">
+                            <h2 class="h4 mb-0 me-2">Juin 2023</h2>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary">
+                                    <i class="fas fa-chevron-left"></i>
+                                </button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary">
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center gap-2">
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-outline-secondary active" id="monthViewBtn">
+                                    <i class="fas fa-calendar-alt me-md-2"></i>
+                                    <span class="d-none d-md-inline">Mois</span>
+                                </button>
+                                <button type="button" class="btn btn-outline-secondary" id="weekViewBtn">
+                                    <i class="fas fa-calendar-week me-md-2"></i>
+                                    <span class="d-none d-md-inline">Semaine</span>
+                                </button>
+                                <button type="button" class="btn btn-outline-secondary" id="listViewBtn">
+                                    <i class="fas fa-list me-md-2"></i>
+                                    <span class="d-none d-md-inline">Liste</span>
+                                </button>
+                            </div>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newSessionModal">
+                                <i class="fas fa-plus me-md-2"></i>
+                                <span class="d-none d-md-inline">Nouvelle session</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Month View (Default) -->
+                <div id="monthView" class="schedule-view animate-on-scroll fade-in">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-0">
+                            <!-- Calendar Header -->
+                            <div class="calendar-header bg-dark p-2">
+                                <div class="row g-0 text-center fw-bold">
+                                    <div class="col">Lun</div>
+                                    <div class="col">Mar</div>
+                                    <div class="col">Mer</div>
+                                    <div class="col">Jeu</div>
+                                    <div class="col">Ven</div>
+                                    <div class="col">Sam</div>
+                                    <div class="col">Dim</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Calendar Body -->
+                            <div class="calendar-body">
+                                <!-- Week 1 -->
+                                <div class="row g-0 calendar-week">
+                                    <div class="col calendar-day prev-month">
+                                        <div class="day-number">29</div>
+                                    </div>
+                                    <div class="col calendar-day prev-month">
+                                        <div class="day-number">30</div>
+                                    </div>
+                                    <div class="col calendar-day prev-month">
+                                        <div class="day-number">31</div>
+                                    </div>
+                                    <div class="col calendar-day">
+                                        <div class="day-number">1</div>
+                                    </div>
+                                    <div class="col calendar-day">
+                                        <div class="day-number">2</div>
+                                    </div>
+                                    <div class="col calendar-day">
+                                        <div class="day-number">3</div>
+                                    </div>
+                                    <div class="col calendar-day">
+                                        <div class="day-number">4</div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Week 2 -->
+                                <div class="row g-0 calendar-week">
+                                    <div class="col calendar-day">
+                                        <div class="day-number">5</div>
+                                    </div>
+                                    <div class="col calendar-day">
+                                        <div class="day-number">6</div>
+                                    </div>
+                                    <div class="col calendar-day">
+                                        <div class="day-number">7</div>
+                                    </div>
+                                    <div class="col calendar-day">
+                                        <div class="day-number">8</div>
+                                    </div>
+                                    <div class="col calendar-day">
+                                        <div class="day-number">9</div>
+                                    </div>
+                                    <div class="col calendar-day">
+                                        <div class="day-number">10</div>
+                                    </div>
+                                    <div class="col calendar-day">
+                                        <div class="day-number">11</div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Week 3 -->
+                                <div class="row g-0 calendar-week">
+                                    <div class="col calendar-day">
+                                        <div class="day-number">12</div>
+                                    </div>
+                                    <div class="col calendar-day">
+                                        <div class="day-number">13</div>
+                                    </div>
+                                    <div class="col calendar-day">
+                                        <div class="day-number">14</div>
+                                    </div>
+                                    <div class="col calendar-day current-day">
+                                        <div class="day-number">15</div>
+                                        <div class="calendar-events">
+                                            <div class="calendar-event bg-primary" data-bs-toggle="modal" data-bs-target="#viewSessionModal">
+                                                <span class="event-time">15:00 - 16:00</span>
+                                                <span class="event-title">Session avec Marie Lefevre</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col calendar-day">
+                                        <div class="day-number">16</div>
+                                    </div>
+                                    <div class="col calendar-day">
+                                        <div class="day-number">17</div>
+                                    </div>
+                                    <div class="col calendar-day">
+                                        <div class="day-number">18</div>
+                                        <div class="calendar-events">
+                                            <div class="calendar-event bg-info" data-bs-toggle="modal" data-bs-target="#viewSessionModal">
+                                                <span class="event-time">10:00 - 11:30</span>
+                                                <span class="event-title">Session avec Pierre Martin</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Week 4 -->
+                                <div class="row g-0 calendar-week">
+                                    <div class="col calendar-day">
+                                        <div class="day-number">19</div>
+                                    </div>
+                                    <div class="col calendar-day">
+                                        <div class="day-number">20</div>
+                                    </div>
+                                    <div class="col calendar-day">
+                                        <div class="day-number">21</div>
+                                    </div>
+                                    <div class="col calendar-day">
+                                        <div class="day-number">22</div>
+                                        <div class="calendar-events">
+                                            <div class="calendar-event bg-primary" data-bs-toggle="modal" data-bs-target="#viewSessionModal">
+                                                <span class="event-time">14:00 - 15:00</span>
+                                                <span class="event-title">Révision du projet avec Marie</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col calendar-day">
+                                        <div class="day-number">23</div>
+                                    </div>
+                                    <div class="col calendar-day">
+                                        <div class="day-number">24</div>
+                                    </div>
+                                    <div class="col calendar-day">
+                                        <div class="day-number">25</div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Week 5 -->
+                                <div class="row g-0 calendar-week">
+                                    <div class="col calendar-day">
+                                        <div class="day-number">26</div>
+                                    </div>
+                                    <div class="col calendar-day">
+                                        <div class="day-number">27</div>
+                                    </div>
+                                    <div class="col calendar-day">
+                                        <div class="day-number">28</div>
+                                        <div class="calendar-events">
+                                            <div class="calendar-event bg-success" data-bs-toggle="modal" data-bs-target="#viewSessionModal">
+                                                <span class="event-time">16:30 - 17:30</span>
+                                                <span class="event-title">Session avec Sophie Bernard</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col calendar-day">
+                                        <div class="day-number">29</div>
+                                    </div>
+                                    <div class="col calendar-day">
+                                        <div class="day-number">30</div>
+                                    </div>
+                                    <div class="col calendar-day next-month">
+                                        <div class="day-number">1</div>
+                                    </div>
+                                    <div class="col calendar-day next-month">
+                                        <div class="day-number">2</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Week View (Hidden by default) -->
+                <div id="weekView" class="schedule-view d-none animate-on-scroll fade-in">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-0">
+                            <div class="week-view-header bg-dark p-2 d-flex">
+                                <div class="time-column" style="width: 60px;"></div>
+                                <div class="flex-fill">
+                                    <div class="row g-0 text-center fw-bold">
+                                        <div class="col">
+                                            <div>Lun</div>
+                                            <div>12</div>
+                                        </div>
+                                        <div class="col">
+                                            <div>Mar</div>
+                                            <div>13</div>
+                                        </div>
+                                        <div class="col">
+                                            <div>Mer</div>
+                                            <div>14</div>
+                                        </div>
+                                        <div class="col current-day">
+                                            <div>Jeu</div>
+                                            <div>15</div>
+                                        </div>
+                                        <div class="col">
+                                            <div>Ven</div>
+                                            <div>16</div>
+                                        </div>
+                                        <div class="col">
+                                            <div>Sam</div>
+                                            <div>17</div>
+                                        </div>
+                                        <div class="col">
+                                            <div>Dim</div>
+                                            <div>18</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="week-view-body d-flex">
+                                <div class="time-column p-2" style="width: 60px;">
+                                    <div class="time-slot">09:00</div>
+                                    <div class="time-slot">10:00</div>
+                                    <div class="time-slot">11:00</div>
+                                    <div class="time-slot">12:00</div>
+                                    <div class="time-slot">13:00</div>
+                                    <div class="time-slot">14:00</div>
+                                    <div class="time-slot">15:00</div>
+                                    <div class="time-slot">16:00</div>
+                                    <div class="time-slot">17:00</div>
+                                </div>
+                                <div class="flex-fill week-grid">
+                                    <div class="row g-0 h-100">
+                                        <div class="col week-day">
+                                            <!-- Empty day -->
+                                        </div>
+                                        <div class="col week-day">
+                                            <!-- Empty day -->
+                                        </div>
+                                        <div class="col week-day">
+                                            <!-- Empty day -->
+                                        </div>
+                                        <div class="col week-day current-day">
+                                            <div class="week-event bg-primary" style="top: 60%; height: 10%;" data-bs-toggle="modal" data-bs-target="#viewSessionModal">
+                                                <div class="event-content">
+                                                    <div class="event-time">15:00 - 16:00</div>
+                                                    <div class="event-title">Session avec Marie Lefevre</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col week-day">
+                                            <!-- Empty day -->
+                                        </div>
+                                        <div class="col week-day">
+                                            <!-- Empty day -->
+                                        </div>
+                                        <div class="col week-day">
+                                            <div class="week-event bg-info" style="top: 10%; height: 15%;" data-bs-toggle="modal" data-bs-target="#viewSessionModal">
+                                                <div class="event-content">
+                                                    <div class="event-time">10:00 - 11:30</div>
+                                                    <div class="event-title">Session avec Pierre Martin</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- List View (Hidden by default) -->
+                <div id="listView" class="schedule-view d-none animate-on-scroll fade-in">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-header bg-dark d-flex justify-content-between align-items-center">
+                            <h5 class="card-title mb-0">Sessions à venir</h5>
+                            <div class="input-group" style="max-width: 300px;">
+                                <input type="text" class="form-control form-control-sm" placeholder="Rechercher...">
+                                <button class="btn btn-outline-secondary btn-sm" type="button">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="list-group list-group-flush">
+                                <div class="list-group-item p-3">
+                                    <div class="d-flex align-items-center">
+                                        <div class="session-date text-center me-3">
+                                            <div class="session-month bg-primary-subtle text-primary rounded-top py-1 small">JUIN</div>
+                                            <div class="session-day py-1 px-2 border border-top-0 rounded-bottom fw-bold fs-5">15</div>
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <div class="d-flex justify-content-between align-items-center mb-1">
+                                                <h6 class="mb-0">Session de mentorat avec Marie Lefevre</h6>
+                                                <span class="badge bg-primary">15:00 - 16:00</span>
+                                            </div>
+                                            <p class="mb-2 small text-body-secondary">
+                                                <i class="fas fa-video me-1"></i> Visioconférence
+                                            </p>
+                                            <p class="mb-0 small">Review de votre portfolio et suggestions d'amélioration</p>
+                                        </div>
+                                        <div class="ms-3 d-flex gap-2">
+                                            <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#viewSessionModal">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-danger">
+                                                <i class="fas fa-times"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list-group-item p-3">
+                                    <div class="d-flex align-items-center">
+                                        <div class="session-date text-center me-3">
+                                            <div class="session-month bg-primary-subtle text-primary rounded-top py-1 small">JUIN</div>
+                                            <div class="session-day py-1 px-2 border border-top-0 rounded-bottom fw-bold fs-5">18</div>
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <div class="d-flex justify-content-between align-items-center mb-1">
+                                                <h6 class="mb-0">Session technique avec Pierre Martin</h6>
+                                                <span class="badge bg-primary">10:00 - 11:30</span>
+                                            </div>
+                                            <p class="mb-2 small text-body-secondary">
+                                                <i class="fas fa-map-marker-alt me-1"></i> Café Numérique, Paris
+                                            </p>
+                                            <p class="mb-0 small">Introduction à l'architecture des microservices</p>
+                                        </div>
+                                        <div class="ms-3 d-flex gap-2">
+                                            <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#viewSessionModal">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-danger">
+                                                <i class="fas fa-times"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list-group-item p-3">
+                                    <div class="d-flex align-items-center">
+                                        <div class="session-date text-center me-3">
+                                            <div class="session-month bg-primary-subtle text-primary rounded-top py-1 small">JUIN</div>
+                                            <div class="session-day py-1 px-2 border border-top-0 rounded-bottom fw-bold fs-5">22</div>
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <div class="d-flex justify-content-between align-items-center mb-1">
+                                                <h6 class="mb-0">Révision du projet avec Marie Lefevre</h6>
+                                                <span class="badge bg-primary">14:00 - 15:00</span>
+                                            </div>
+                                            <p class="mb-2 small text-body-secondary">
+                                                <i class="fas fa-video me-1"></i> Visioconférence
+                                            </p>
+                                            <p class="mb-0 small">Revue de code et suggestions d'optimisation</p>
+                                        </div>
+                                        <div class="ms-3 d-flex gap-2">
+                                            <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#viewSessionModal">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-danger">
+                                                <i class="fas fa-times"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list-group-item p-3">
+                                    <div class="d-flex align-items-center">
+                                        <div class="session-date text-center me-3">
+                                            <div class="session-month bg-primary-subtle text-primary rounded-top py-1 small">JUIN</div>
+                                            <div class="session-day py-1 px-2 border border-top-0 rounded-bottom fw-bold fs-5">28</div>
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <div class="d-flex justify-content-between align-items-center mb-1">
+                                                <h6 class="mb-0">Session avec Sophie Bernard</h6>
+                                                <span class="badge bg-primary">16:30 - 17:30</span>
+                                            </div>
+                                            <p class="mb-2 small text-body-secondary">
+                                                <i class="fas fa-video me-1"></i> Visioconférence
+                                            </p>
+                                            <p class="mb-0 small">Conseils sur la gestion de projet Agile</p>
+                                        </div>
+                                        <div class="ms-3 d-flex gap-2">
+                                            <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#viewSessionModal">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-danger">
+                                                <i class="fas fa-times"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Session Stats -->
+                <div class="row g-4 mt-4">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card border-0 shadow-sm h-100 animate-on-scroll fade-in">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="stat-icon bg-primary-subtle text-primary rounded-circle me-3">
+                                        <i class="fas fa-calendar-check"></i>
+                                    </div>
+                                    <h6 class="card-title mb-0">Sessions du mois</h6>
+                                </div>
+                                <h2 class="mb-0">5</h2>
+                                <p class="text-success small mb-0"><i class="fas fa-arrow-up me-1"></i> +2 par rapport au mois dernier</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card border-0 shadow-sm h-100 animate-on-scroll fade-in" data-delay="150">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="stat-icon bg-success-subtle text-success rounded-circle me-3">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <h6 class="card-title mb-0">Heures total</h6>
+                                </div>
+                                <h2 class="mb-0">12h</h2>
+                                <p class="text-body-secondary small mb-0">Depuis le début</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card border-0 shadow-sm h-100 animate-on-scroll fade-in" data-delay="300">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="stat-icon bg-warning-subtle text-warning rounded-circle me-3">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                    <h6 class="card-title mb-0">Mentors impliqués</h6>
+                                </div>
+                                <h2 class="mb-0">3</h2>
+                                <p class="text-body-secondary small mb-0">Sur 3 disponibles</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card border-0 shadow-sm h-100 animate-on-scroll fade-in" data-delay="450">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="stat-icon bg-info-subtle text-info rounded-circle me-3">
+                                        <i class="fas fa-chart-line"></i>
+                                    </div>
+                                    <h6 class="card-title mb-0">Taux d'engagement</h6>
+                                </div>
+                                <h2 class="mb-0">92%</h2>
+                                <p class="text-success small mb-0"><i class="fas fa-arrow-up me-1"></i> +5% ce mois-ci</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- New Session Modal -->
+            <div class="modal fade" id="newSessionModal" tabindex="-1" aria-labelledby="newSessionModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="newSessionModalLabel">Planifier une nouvelle session</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="newSessionForm">
+                                <div class="mb-3">
+                                    <label for="sessionMentor" class="form-label">Mentor</label>
+                                    <select class="form-select" id="sessionMentor" required>
+                                        <option value="" selected disabled>Sélectionnez un mentor</option>
+                                        <option value="marie">Marie Lefevre</option>
+                                        <option value="pierre">Pierre Martin</option>
+                                        <option value="sophie">Sophie Bernard</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="sessionTitle" class="form-label">Titre de la session</label>
+                                    <input type="text" class="form-control" id="sessionTitle" placeholder="Ex: Revue de code, Discussion sur les frameworks..." required>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col">
+                                        <label for="sessionDate" class="form-label">Date</label>
+                                        <input type="date" class="form-control" id="sessionDate" required>
+                                    </div>
+                                    <div class="col">
+                                        <label for="sessionTime" class="form-label">Heure</label>
+                                        <input type="time" class="form-control" id="sessionTime" required>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="sessionDuration" class="form-label">Durée</label>
+                                    <select class="form-select" id="sessionDuration" required>
+                                        <option value="30">30 minutes</option>
+                                        <option value="60" selected>1 heure</option>
+                                        <option value="90">1 heure 30</option>
+                                        <option value="120">2 heures</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="sessionType" class="form-label">Type de session</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="sessionType" id="sessionTypeOnline" value="online" checked>
+                                        <label class="form-check-label" for="sessionTypeOnline">
+                                            <i class="fas fa-video me-2"></i>Visioconférence
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="sessionType" id="sessionTypeInPerson" value="inperson">
+                                        <label class="form-check-label" for="sessionTypeInPerson">
+                                            <i class="fas fa-map-marker-alt me-2"></i>En personne
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="mb-3 d-none" id="locationField">
+                                    <label for="sessionLocation" class="form-label">Lieu de rencontre</label>
+                                    <input type="text" class="form-control" id="sessionLocation" placeholder="Adresse ou lieu de rencontre">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="sessionDescription" class="form-label">Description / Ordre du jour</label>
+                                    <textarea class="form-control" id="sessionDescription" rows="3" placeholder="Décrivez brièvement l'objectif de cette session..."></textarea>
+                                </div>
+                                <div class="mb-3 form-check">
+                                    <input type="checkbox" class="form-check-input" id="sessionReminder" checked>
+                                    <label class="form-check-label" for="sessionReminder">Recevoir un rappel 24h avant la session</label>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                            <button type="button" class="btn btn-primary" id="saveSessionBtn">Planifier la session</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View Session Modal -->
+            <div class="modal fade" id="viewSessionModal" tabindex="-1" aria-labelledby="viewSessionModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="viewSessionModalLabel">Détails de la session</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="d-flex align-items-center mb-4">
+                                <img src="https://ui-avatars.com/api/?name=Marie+Lefevre&background=6f42c1&color=fff&size=64" alt="Marie Lefevre" class="rounded-circle me-3">
+                                <div>
+                                    <h5 class="mb-1">Session avec Marie Lefevre</h5>
+                                    <p class="text-body-secondary mb-0">Développeuse Full-Stack Senior</p>
+                                </div>
+                            </div>
+                            
+                            <div class="session-details">
+                                <div class="mb-3 d-flex">
+                                    <div class="detail-icon text-primary me-3">
+                                        <i class="fas fa-calendar-day"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-1">Date et heure</h6>
+                                        <p class="mb-0">Jeudi 15 juin 2023, 15:00 - 16:00</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3 d-flex">
+                                    <div class="detail-icon text-primary me-3">
+                                        <i class="fas fa-video"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-1">Type de session</h6>
+                                        <p class="mb-0">Visioconférence</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3 d-flex">
+                                    <div class="detail-icon text-primary me-3">
+                                        <i class="fas fa-link"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-1">Lien de connexion</h6>
+                                        <p class="mb-0">
+                                            <a href="#" class="text-decoration-none">https://meet.mentamatch.com/marielefevre/session123</a>
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3 d-flex">
+                                    <div class="detail-icon text-primary me-3">
+                                        <i class="fas fa-align-left"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-1">Description</h6>
+                                        <p class="mb-0">Review de votre portfolio et suggestions d'amélioration. Nous passerons en revue la structure, le contenu et le design de votre portfolio pour le rendre plus attractif pour les recruteurs.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Fermer</button>
+                            <button type="button" class="btn btn-outline-info">
+                                <i class="fas fa-edit me-2"></i>Modifier
+                            </button>
+                            <button type="button" class="btn btn-primary">
+                                <i class="fas fa-comments me-2"></i>Contacter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="animations.js"></script>
+    <script>
+        // Toggle sidebar on mobile
+        document.getElementById('sidebarCollapse').addEventListener('click', function() {
+            document.getElementById('sidebar').classList.add('active');
+        });
+        
+        document.getElementById('sidebarCollapseBtn').addEventListener('click', function() {
+            document.getElementById('sidebar').classList.remove('active');
+        });
+
+        // Toggle calendar views
+        const viewButtons = [
+            { id: 'monthViewBtn', viewId: 'monthView' },
+            { id: 'weekViewBtn', viewId: 'weekView' },
+            { id: 'listViewBtn', viewId: 'listView' }
+        ];
+        
+        viewButtons.forEach(button => {
+            document.getElementById(button.id).addEventListener('click', function() {
+                // Remove active class from all buttons
+                viewButtons.forEach(b => document.getElementById(b.id).classList.remove('active'));
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                // Hide all views
+                viewButtons.forEach(b => document.getElementById(b.viewId).classList.add('d-none'));
+                
+                // Show selected view
+                document.getElementById(button.viewId).classList.remove('d-none');
+            });
+        });
+
+        // Toggle location field based on session type
+        document.getElementById('sessionTypeInPerson').addEventListener('change', function() {
+            document.getElementById('locationField').classList.remove('d-none');
+        });
+        
+        document.getElementById('sessionTypeOnline').addEventListener('change', function() {
+            document.getElementById('locationField').classList.add('d-none');
+        });
+
+        // Handle new session submission
+        document.getElementById('saveSessionBtn').addEventListener('click', function() {
+            // In a real app, this would save the session data
+            // For this demo, just close the modal and show a success message
+            const modal = bootstrap.Modal.getInstance(document.getElementById('newSessionModal'));
+            modal.hide();
+            
+            // Show success toast
+            const toastHTML = `
+                <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                    <div class="toast align-items-center text-white bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="d-flex">
+                            <div class="toast-body">
+                                <i class="fas fa-check-circle me-2"></i>
+                                Session planifiée avec succès !
+                            </div>
+                            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.body.insertAdjacentHTML('beforeend', toastHTML);
+            const toastEl = document.querySelector('.toast');
+            const toast = new bootstrap.Toast(toastEl);
+            toast.show();
+            
+            // Remove toast after it's hidden
+            toastEl.addEventListener('hidden.bs.toast', function () {
+                this.parentNode.remove();
+            });
+
+            // Reset form
+            document.getElementById('newSessionForm').reset();
+        });
+
+        // Add current date to new session form
+        const today = new Date();
+        const dateString = today.toISOString().split('T')[0];
+        document.getElementById('sessionDate').value = dateString;
+    </script>
+</body>
+</html>

@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MentaMatch - Plateforme de Mentorat</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <i class="fas fa-handshake me-2 text-primary"></i>
+                <span class="fw-bold">MentaMatch</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active fw-medium" href="index.html">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-medium" href="#how-it-works">Comment ça marche</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-medium" href="#testimonials">Témoignages</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-medium" href="#pricing">Tarifs</a>
+                    </li>
+                    <li class="nav-item ms-2">
+                        <a class="btn btn-outline-primary" href="login.html">Connexion</a>
+                    </li>
+                    <li class="nav-item ms-2">
+                        <a class="btn btn-primary" href="register.html">S'inscrire</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section py-5 bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 text-lg-start mb-5 mb-lg-0">
+                    <h1 class="display-4 fw-bold mb-3 animate-on-scroll fade-in">Connectez-vous avec des <span class="text-primary">experts</span> qui ont déjà réussi.</h1>
+                    <p class="lead mb-4 text-secondary animate-on-scroll fade-in">MentaMatch met en relation les jeunes professionnels avec des experts seniors pour un mentorat personnalisé et efficace.</p>
+                    <div class="d-flex flex-column flex-sm-row justify-content-lg-start justify-content-center gap-3 animate-on-scroll fade-in">
+                        <a href="register.html" class="btn btn-primary btn-lg shadow-sm">Commencer maintenant</a>
+                        <a href="#how-it-works" class="btn btn-outline-primary btn-lg">Comment ça marche</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 animate-on-scroll slide-in-right">
+                    <div class="hero-image-container bg-white rounded-4 shadow p-4">
+                        <svg width="100%" height="350" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="100%" height="100%" fill="#f8f9fa" rx="20" ry="20" />
+                            <circle cx="400" cy="300" r="250" fill="#ffffff" stroke="#4e73df" stroke-width="5" />
+                            <path d="M300,200 Q400,100 500,200 T700,300 T500,400 T300,400 T100,300 T300,200" 
+                                  fill="none" stroke="#36b9cc" stroke-width="5" />
+                            <circle cx="300" cy="250" r="70" fill="#6c757d" />
+                            <circle cx="500" cy="250" r="70" fill="#36b9cc" />
+                            <path d="M320,380 Q400,430 480,380" fill="none" stroke="#5a5c69" stroke-width="6" stroke-linecap="round" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Stats Section -->
+    <section class="py-4 bg-white border-bottom">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-4 mb-3 mb-md-0 animate-on-scroll fade-in">
+                    <h2 class="fw-bold text-primary">5000+</h2>
+                    <p class="mb-0 text-secondary">Connections réussies</p>
+                </div>
+                <div class="col-md-4 mb-3 mb-md-0 animate-on-scroll fade-in" data-delay="200">
+                    <h2 class="fw-bold text-primary">1200+</h2>
+                    <p class="mb-0 text-secondary">Mentors experts</p>
+                </div>
+                <div class="col-md-4 animate-on-scroll fade-in" data-delay="400">
+                    <h2 class="fw-bold text-primary">95%</h2>
+                    <p class="mb-0 text-secondary">Taux de satisfaction</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold mb-3 animate-on-scroll fade-in">Comment ça marche</h2>
+                <p class="lead text-secondary animate-on-scroll fade-in">Un processus simple pour vous connecter avec le mentor idéal</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm animate-on-scroll fade-in rounded-3 hover-lift">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon bg-primary text-white rounded-circle mb-3 mx-auto">
+                                <i class="fas fa-user-plus"></i>
+                            </div>
+                            <h4 class="card-title">1. Créez votre profil</h4>
+                            <p class="card-text text-muted">Renseignez vos compétences, expériences et objectifs professionnels.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm animate-on-scroll fade-in rounded-3 hover-lift" data-delay="200">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon bg-info text-white rounded-circle mb-3 mx-auto">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <h4 class="card-title">2. Trouvez un match</h4>
+                            <p class="card-text text-muted">Notre algorithme trouve les meilleurs mentors selon vos critères.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm animate-on-scroll fade-in rounded-3 hover-lift" data-delay="400">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon bg-success text-white rounded-circle mb-3 mx-auto">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <h4 class="card-title">3. Planifiez des sessions</h4>
+                            <p class="card-text text-muted">Organisez des rendez-vous selon vos disponibilités respectives.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm animate-on-scroll fade-in rounded-3 hover-lift" data-delay="600">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon bg-warning text-white rounded-circle mb-3 mx-auto">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h4 class="card-title">4. Suivez vos progrès</h4>
+                            <p class="card-text text-muted">Suivez votre évolution et atteignez vos objectifs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Section -->
+    <section class="py-5 bg-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="rounded-4 shadow p-4 bg-light animate-on-scroll fade-in">
+                        <svg width="100%" height="400" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="100%" height="100%" fill="white" rx="20" ry="20" />
+                            <rect x="150" y="100" width="500" height="400" rx="20" ry="20" fill="#f8f9fa" stroke="#4e73df" stroke-width="3" />
+                            <rect x="180" y="150" width="440" height="60" rx="10" ry="10" fill="#6c757d" />
+                            <rect x="180" y="230" width="200" height="60" rx="10" ry="10" fill="#36b9cc" />
+                            <rect x="420" y="230" width="200" height="60" rx="10" ry="10" fill="#36b9cc" />
+                            <rect x="180" y="310" width="440" height="60" rx="10" ry="10" fill="#6c757d" />
+                            <rect x="180" y="390" width="440" height="60" rx="10" ry="10" fill="#6c757d" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="ps-lg-5">
+                        <h2 class="display-5 fw-bold mb-4 animate-on-scroll fade-in">Un système intelligent de mise en relation</h2>
+                        <div class="d-flex mb-4 animate-on-scroll fade-in">
+                            <div class="feature-icon bg-primary text-white rounded-circle me-3 shadow-sm">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <div>
+                                <h4 class="fw-bold">Algorithme de matching avancé</h4>
+                                <p class="text-muted mb-0">Notre système prend en compte vos compétences, vos objectifs et vos expériences pour vous proposer les mentors les plus pertinents.</p>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-4 animate-on-scroll fade-in" data-delay="200">
+                            <div class="feature-icon bg-info text-white rounded-circle me-3 shadow-sm">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <div>
+                                <h4 class="fw-bold">Messagerie intégrée</h4>
+                                <p class="text-muted mb-0">Communiquez facilement avec votre mentor ou mentoré grâce à notre système de messagerie intégré.</p>
+                            </div>
+                        </div>
+                        <div class="d-flex animate-on-scroll fade-in" data-delay="400">
+                            <div class="feature-icon bg-success text-white rounded-circle me-3 shadow-sm">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="fw-bold">Génération de CV</h4>
+                                <p class="text-muted mb-0">Créez un CV professionnel à partir des informations de votre profil pour faciliter votre recherche d'emploi.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold mb-3 animate-on-scroll fade-in">Ce que disent nos utilisateurs</h2>
+                <p class="lead text-secondary animate-on-scroll fade-in">Des témoignages de mentors et mentorés qui ont utilisé MentaMatch</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm testimonial-card animate-on-scroll fade-in rounded-3">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <img src="https://ui-avatars.com/api/?name=Sophie+Martin&background=4e73df&color=fff&size=48" alt="Sophie Martin" class="rounded-circle me-3">
+                                <div>
+                                    <h5 class="card-title mb-0 fw-bold">Sophie Martin</h5>
+                                    <p class="card-subtitle text-muted">Jeune développeuse web</p>
+                                </div>
+                            </div>
+                            <div class="mb-3 text-muted fst-italic">
+                                <i class="fas fa-quote-left fa-xs me-1 text-primary"></i>
+                                Grâce à MentaMatch, j'ai trouvé un mentor expérimenté qui m'a guidée dans mon parcours professionnel. Ses conseils ont été précieux pour développer mes compétences et booster ma carrière.
+                                <i class="fas fa-quote-right fa-xs ms-1 text-primary"></i>
+                            </div>
+                            <div class="text-warning">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm testimonial-card animate-on-scroll fade-in rounded-3" data-delay="200">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <img src="https://ui-avatars.com/api/?name=Jean+Dupont&background=36b9cc&color=fff&size=48" alt="Jean Dupont" class="rounded-circle me-3">
+                                <div>
+                                    <h5 class="card-title mb-0 fw-bold">Jean Dupont</h5>
+                                    <p class="card-subtitle text-muted">Mentor en gestion de projet</p>
+                                </div>
+                            </div>
+                            <div class="mb-3 text-muted fst-italic">
+                                <i class="fas fa-quote-left fa-xs me-1 text-primary"></i>
+                                En tant que mentor, MentaMatch m'a permis de partager mon expérience avec de jeunes talents. C'est extrêmement gratifiant de voir mes mentorés progresser et réussir dans leur carrière.
+                                <i class="fas fa-quote-right fa-xs ms-1 text-primary"></i>
+                            </div>
+                            <div class="text-warning">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm testimonial-card animate-on-scroll fade-in" data-delay="400">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="testimonial-avatar bg-info-subtle text-info rounded-circle me-3">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div>
+                                    <h5 class="card-title mb-0">Marie Lefevre</h5>
+                                    <p class="card-subtitle text-body-secondary">Entrepreneure en marketing</p>
+                                </div>
+                            </div>
+                            <p class="card-text mb-3">"La plateforme est intuitive et le système de mise en relation est vraiment efficace. J'ai trouvé un mentor qui correspondait parfaitement à mes besoins et nous avons établi une relation professionnelle enrichissante."</p>
+                            <div class="text-warning">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="bg-dark-subtle py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold mb-3 animate-on-scroll fade-in">Nos tarifs abordables</h2>
+                <p class="lead animate-on-scroll fade-in">Choisissez le plan qui vous convient le mieux</p>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm price-card animate-on-scroll fade-in">
+                        <div class="card-body p-4 text-center">
+                            <h3 class="card-title">Débutant</h3>
+                            <div class="price-tag my-4">
+                                <span class="display-5 fw-bold">9,99€</span>
+                                <span class="text-body-secondary">/mois</span>
+                            </div>
+                            <ul class="list-unstyled mb-4">
+                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Accès à 1 mentor</li>
+                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>2 sessions par mois</li>
+                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Messagerie illimitée</li>
+                                <li class="mb-2 text-body-secondary"><i class="fas fa-times me-2"></i>Générateur de CV</li>
+                                <li class="text-body-secondary"><i class="fas fa-times me-2"></i>Suivi de progression</li>
+                            </ul>
+                            <a href="subscription.html" class="btn btn-outline-primary btn-lg w-100">Choisir ce plan</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-2 border-primary shadow price-card animate-on-scroll fade-in" data-delay="200">
+                        <div class="card-body p-4 text-center">
+                            <div class="ribbon">Populaire</div>
+                            <h3 class="card-title">Standard</h3>
+                            <div class="price-tag my-4">
+                                <span class="display-5 fw-bold">19,99€</span>
+                                <span class="text-body-secondary">/mois</span>
+                            </div>
+                            <ul class="list-unstyled mb-4">
+                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Accès à 3 mentors</li>
+                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>5 sessions par mois</li>
+                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Messagerie illimitée</li>
+                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Générateur de CV</li>
+                                <li class="text-body-secondary"><i class="fas fa-times me-2"></i>Suivi de progression</li>
+                            </ul>
+                            <a href="subscription.html" class="btn btn-primary btn-lg w-100">Choisir ce plan</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm price-card animate-on-scroll fade-in" data-delay="400">
+                        <div class="card-body p-4 text-center">
+                            <h3 class="card-title">Premium</h3>
+                            <div class="price-tag my-4">
+                                <span class="display-5 fw-bold">39,99€</span>
+                                <span class="text-body-secondary">/mois</span>
+                            </div>
+                            <ul class="list-unstyled mb-4">
+                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Accès illimité aux mentors</li>
+                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Sessions illimitées</li>
+                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Messagerie illimitée</li>
+                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Générateur de CV avancé</li>
+                                <li><i class="fas fa-check text-primary me-2"></i>Suivi de progression détaillé</li>
+                            </ul>
+                            <a href="subscription.html" class="btn btn-outline-primary btn-lg w-100">Choisir ce plan</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mb-4 mb-lg-0">
+                    <h2 class="display-5 fw-bold mb-3 animate-on-scroll fade-in">Prêt à développer votre carrière?</h2>
+                    <p class="lead mb-0 animate-on-scroll fade-in">Rejoignez MentaMatch aujourd'hui et connectez-vous avec des experts qui transformeront votre parcours professionnel.</p>
+                </div>
+                <div class="col-lg-4 text-lg-end animate-on-scroll slide-in-right">
+                    <a href="register.html" class="btn btn-light btn-lg">Commencer gratuitement</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-handshake me-2 fs-3"></i>
+                        <h4 class="mb-0">MentaMatch</h4>
+                    </div>
+                    <p>Connecter les talents avec des experts pour un avenir professionnel meilleur.</p>
+                    <div class="social-links">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-2">
+                    <h5 class="mb-3">Liens rapides</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-decoration-none text-white-50">Accueil</a></li>
+                        <li class="mb-2"><a href="#how-it-works" class="text-decoration-none text-white-50">Comment ça marche</a></li>
+                        <li class="mb-2"><a href="#testimonials" class="text-decoration-none text-white-50">Témoignages</a></li>
+                        <li><a href="#pricing" class="text-decoration-none text-white-50">Tarifs</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-6 col-lg-2">
+                    <h5 class="mb-3">Ressources</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">Blog</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">FAQ</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">Support</a></li>
+                        <li><a href="#" class="text-decoration-none text-white-50">Ressources gratuites</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="mb-3">Inscrivez-vous à notre newsletter</h5>
+                    <p class="text-white-50 mb-3">Recevez nos dernières actualités et conseils de carrière.</p>
+                    <form>
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Votre email" aria-label="Votre email">
+                            <button class="btn btn-primary" type="button">S'inscrire</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr class="my-4 bg-secondary">
+            <div class="row">
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <p class="mb-0 text-white-50">&copy; 2023 MentaMatch. Tous droits réservés.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-decoration-none text-white-50 me-3">Mentions légales</a>
+                    <a href="#" class="text-decoration-none text-white-50 me-3">Confidentialité</a>
+                    <a href="#" class="text-decoration-none text-white-50">Conditions d'utilisation</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="animations.js"></script>
+</body>
+</html>

@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="fr" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abonnement - MentaMatch</title>
+    <link href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Dashboard Layout with Sidebar -->
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <nav id="sidebar" class="sidebar">
+            <div class="sidebar-header">
+                <a href="dashboard.html" class="d-flex align-items-center text-decoration-none">
+                    <i class="fas fa-handshake me-2 fs-4"></i>
+                    <span class="fs-4 fw-bold">MentaMatch</span>
+                </a>
+                <button type="button" id="sidebarCollapseBtn" class="d-md-none border-0 bg-transparent text-white">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="sidebar-user text-center py-4">
+                <img src="https://ui-avatars.com/api/?name=Jean+Dupont&background=random&color=fff&size=128" alt="Jean Dupont" class="avatar mb-3">
+                <h5 class="mb-1">Jean Dupont</h5>
+                <p class="text-body-secondary mb-0 small">Mentoré • Tech</p>
+            </div>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a href="dashboard.html" class="nav-link">
+                        <i class="fas fa-home me-2"></i>
+                        <span>Tableau de bord</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="profile.html" class="nav-link">
+                        <i class="fas fa-user me-2"></i>
+                        <span>Mon profil</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="messaging.html" class="nav-link">
+                        <i class="fas fa-comments me-2"></i>
+                        <span>Messagerie</span>
+                        <span class="badge bg-primary rounded-pill ms-auto">3</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="schedule.html" class="nav-link">
+                        <i class="fas fa-calendar-alt me-2"></i>
+                        <span>Sessions</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#resources" class="nav-link collapsed" data-bs-toggle="collapse" aria-expanded="false">
+                        <i class="fas fa-book me-2"></i>
+                        <span>Ressources</span>
+                        <i class="fas fa-chevron-down ms-auto small"></i>
+                    </a>
+                    <div class="collapse" id="resources">
+                        <ul class="nav flex-column ms-3 small">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="fas fa-file-alt me-2"></i>
+                                    <span>Générateur de CV</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="fas fa-chart-line me-2"></i>
+                                    <span>Suivi de progression</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="fas fa-graduation-cap me-2"></i>
+                                    <span>Formations</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="subscription.html" class="nav-link active">
+                        <i class="fas fa-credit-card me-2"></i>
+                        <span>Abonnement</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-cog me-2"></i>
+                        <span>Paramètres</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="sidebar-footer">
+                <a href="index.html" class="btn btn-outline-light btn-sm w-100">
+                    <i class="fas fa-sign-out-alt me-2"></i>
+                    <span>Déconnexion</span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Navigation -->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top border-bottom">
+                <div class="container-fluid">
+                    <button type="button" id="sidebarCollapse" class="btn btn-link d-md-none text-light me-3">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="d-flex align-items-center">
+                        <h5 class="mb-0">Abonnement</h5>
+                    </div>
+                    <ul class="navbar-nav ms-auto d-flex flex-row">
+                        <li class="nav-item dropdown me-3">
+                            <a class="nav-link position-relative" href="#" id="notificationsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-bell"></i>
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    2
+                                </span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationsDropdown">
+                                <h6 class="dropdown-header">Notifications</h6>
+                                <a class="dropdown-item" href="#">
+                                    <div class="d-flex align-items-center">
+                                        <div class="flex-shrink-0">
+                                            <div class="avatar avatar-sm bg-info-subtle text-info rounded-circle">
+                                                <i class="fas fa-calendar-check"></i>
+                                            </div>
+                                        </div>
+                                        <div class="flex-grow-1 ms-3">
+                                            <p class="mb-0 small">Nouvelle session planifiée avec Marie Lefevre</p>
+                                            <p class="text-body-secondary small mb-0">Il y a 30 minutes</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <div class="d-flex align-items-center">
+                                        <div class="flex-shrink-0">
+                                            <div class="avatar avatar-sm bg-primary-subtle text-primary rounded-circle">
+                                                <i class="fas fa-comment-alt"></i>
+                                            </div>
+                                        </div>
+                                        <div class="flex-grow-1 ms-3">
+                                            <p class="mb-0 small">Nouveau message de Pierre Martin</p>
+                                            <p class="text-body-secondary small mb-0">Il y a 1 heure</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item text-center small" href="#">Voir toutes les notifications</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="https://ui-avatars.com/api/?name=Jean+Dupont&background=random&color=fff&size=32" alt="Jean Dupont" class="avatar-sm rounded-circle me-2">
+                                <span class="d-none d-lg-inline">Jean Dupont</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                                <li><a class="dropdown-item" href="profile.html">Mon profil</a></li>
+                                <li><a class="dropdown-item" href="#">Paramètres</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="index.html">Déconnexion</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Subscription Content -->
+            <div class="container-fluid p-4">
+                <!-- Current Plan Section -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="card border-0 shadow-sm animate-on-scroll fade-in">
+                            <div class="card-header bg-dark">
+                                <h5 class="card-title mb-0">Votre abonnement actuel</h5>
+                            </div>
+                            <div class="card-body p-4">
+                                <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center">
+                                    <div class="d-flex align-items-center mb-3 mb-md-0">
+                                        <div class="subscription-badge bg-primary text-white me-3">
+                                            <i class="fas fa-crown fs-4"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="mb-1">Standard</h4>
+                                            <p class="mb-0 text-body-secondary">19,99€ par mois</p>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-column flex-md-row gap-2">
+                                        <span class="badge bg-success p-2 fw-normal">
+                                            <i class="fas fa-check-circle me-1"></i>Actif
+                                        </span>
+                                        <span class="badge bg-secondary p-2 fw-normal">
+                                            <i class="fas fa-calendar-day me-1"></i>Renouvellement le 15/07/2023
+                                        </span>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row mt-3">
+                                    <div class="col-md-6">
+                                        <h6 class="fw-bold mb-3">Inclus dans votre abonnement :</h6>
+                                        <ul class="list-unstyled">
+                                            <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Accès à 3 mentors</li>
+                                            <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>5 sessions par mois</li>
+                                            <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Messagerie illimitée</li>
+                                            <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Générateur de CV</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6 d-flex flex-column justify-content-between mt-3 mt-md-0">
+                                        <div class="subscription-stats mb-3">
+                                            <p class="text-body-secondary mb-1">Utilisation actuelle :</p>
+                                            <div class="mb-3">
+                                                <div class="d-flex justify-content-between align-items-center mb-1">
+                                                    <span>Mentors</span>
+                                                    <span>2 / 3</span>
+                                                </div>
+                                                <div class="progress" style="height: 8px;">
+                                                    <div class="progress-bar bg-success" role="progressbar" style="width: 66%;" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="d-flex justify-content-between align-items-center mb-1">
+                                                    <span>Sessions ce mois</span>
+                                                    <span>3 / 5</span>
+                                                </div>
+                                                <div class="progress" style="height: 8px;">
+                                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex flex-column flex-sm-row gap-2">
+                                            <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#changePlanModal">Changer de plan</button>
+                                            <button class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#cancelSubscriptionModal">Annuler l'abonnement</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Methods Section -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="card border-0 shadow-sm animate-on-scroll fade-in" data-delay="150">
+                            <div class="card-header bg-dark d-flex justify-content-between align-items-center">
+                                <h5 class="card-title mb-0">Méthodes de paiement</h5>
+                                <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#addPaymentMethodModal">
+                                    <i class="fas fa-plus me-2"></i>Ajouter
+                                </button>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="list-group list-group-flush">
+                                    <div class="list-group-item p-3">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="d-flex align-items-center">
+                                                <div class="payment-icon bg-primary-subtle text-primary rounded-circle me-3">
+                                                    <i class="fab fa-cc-visa"></i>
+                                                </div>
+                                                <div>
+                                                    <h6 class="mb-1">Visa se terminant par 4242</h6>
+                                                    <p class="mb-0 text-body-secondary small">Expire le 05/25</p>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex align-items-center">
+                                                <span class="badge bg-success me-3">Par défaut</span>
+                                                <div class="dropdown">
+                                                    <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="paymentActions1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        Actions
+                                                    </button>
+                                                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="paymentActions1">
+                                                        <li><a class="dropdown-item" href="#"><i class="fas fa-edit me-2"></i>Modifier</a></li>
+                                                        <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash-alt me-2"></i>Supprimer</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item p-3">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="d-flex align-items-center">
+                                                <div class="payment-icon bg-primary-subtle text-primary rounded-circle me-3">
+                                                    <i class="fab fa-cc-mastercard"></i>
+                                                </div>
+                                                <div>
+                                                    <h6 class="mb-1">Mastercard se terminant par 1234</h6>
+                                                    <p class="mb-0 text-body-secondary small">Expire le 08/24</p>
+                                                </div>
+                                            </div>
+                                            <div class="dropdown">
+                                                <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="paymentActions2" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    Actions
+                                                </button>
+                                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="paymentActions2">
+                                                    <li><a class="dropdown-item" href="#"><i class="fas fa-check-circle me-2"></i>Définir par défaut</a></li>
+                                                    <li><a class="dropdown-item" href="#"><i class="fas fa-edit me-2"></i>Modifier</a></li>
+                                                    <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash-alt me-2"></i>Supprimer</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Billing History Section -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card border-0 shadow-sm animate-on-scroll fade-in" data-delay="300">
+                            <div class="card-header bg-dark">
+                                <h5 class="card-title mb-0">Historique de facturation</h5>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <table class="table table-hover mb-0">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th scope="col">Date</th>
+                                                <th scope="col">Montant</th>
+                                                <th scope="col">Type</th>
+                                                <th scope="col">Statut</th>
+                                                <th scope="col">Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>15/05/2023</td>
+                                                <td>19,99€</td>
+                                                <td>Abonnement Standard</td>
+                                                <td><span class="badge bg-success">Payé</span></td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-secondary">
+                                                        <i class="fas fa-download me-1"></i>Facture
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>15/04/2023</td>
+                                                <td>19,99€</td>
+                                                <td>Abonnement Standard</td>
+                                                <td><span class="badge bg-success">Payé</span></td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-secondary">
+                                                        <i class="fas fa-download me-1"></i>Facture
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>15/03/2023</td>
+                                                <td>9,99€</td>
+                                                <td>Abonnement Débutant</td>
+                                                <td><span class="badge bg-success">Payé</span></td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-secondary">
+                                                        <i class="fas fa-download me-1"></i>Facture
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Change Plan Modal -->
+            <div class="modal fade" id="changePlanModal" tabindex="-1" aria-labelledby="changePlanModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="changePlanModalLabel">Changer de plan d'abonnement</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="text-body-secondary mb-4">Choisissez parmi nos plans d'abonnement pour trouver celui qui correspond le mieux à vos besoins.</p>
+                            
+                            <div class="row g-4 justify-content-center">
+                                <div class="col-md-4">
+                                    <div class="card h-100 border-0 shadow-sm price-card">
+                                        <div class="card-body p-4 text-center">
+                                            <h5 class="card-title">Débutant</h5>
+                                            <div class="price-tag my-3">
+                                                <span class="fs-3 fw-bold">9,99€</span>
+                                                <span class="text-body-secondary">/mois</span>
+                                            </div>
+                                            <ul class="list-unstyled mb-4">
+                                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Accès à 1 mentor</li>
+                                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>2 sessions par mois</li>
+                                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Messagerie illimitée</li>
+                                                <li class="mb-2 text-body-secondary"><i class="fas fa-times me-2"></i>Générateur de CV</li>
+                                                <li class="text-body-secondary"><i class="fas fa-times me-2"></i>Suivi de progression</li>
+                                            </ul>
+                                            <button type="button" class="btn btn-outline-primary w-100">Rétrograder</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card h-100 border-2 border-primary shadow price-card">
+                                        <div class="card-body p-4 text-center">
+                                            <div class="ribbon">Votre plan actuel</div>
+                                            <h5 class="card-title">Standard</h5>
+                                            <div class="price-tag my-3">
+                                                <span class="fs-3 fw-bold">19,99€</span>
+                                                <span class="text-body-secondary">/mois</span>
+                                            </div>
+                                            <ul class="list-unstyled mb-4">
+                                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Accès à 3 mentors</li>
+                                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>5 sessions par mois</li>
+                                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Messagerie illimitée</li>
+                                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Générateur de CV</li>
+                                                <li class="text-body-secondary"><i class="fas fa-times me-2"></i>Suivi de progression</li>
+                                            </ul>
+                                            <button type="button" class="btn btn-secondary w-100" disabled>Plan actuel</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card h-100 border-0 shadow-sm price-card">
+                                        <div class="card-body p-4 text-center">
+                                            <h5 class="card-title">Premium</h5>
+                                            <div class="price-tag my-3">
+                                                <span class="fs-3 fw-bold">39,99€</span>
+                                                <span class="text-body-secondary">/mois</span>
+                                            </div>
+                                            <ul class="list-unstyled mb-4">
+                                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Accès illimité aux mentors</li>
+                                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Sessions illimitées</li>
+                                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Messagerie illimitée</li>
+                                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Générateur de CV avancé</li>
+                                                <li><i class="fas fa-check text-primary me-2"></i>Suivi de progression détaillé</li>
+                                            </ul>
+                                            <button type="button" class="btn btn-primary w-100">Passer au Premium</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="alert alert-info mt-4">
+                                <i class="fas fa-info-circle me-2"></i>
+                                Le changement de plan prendra effet à la fin de votre cycle de facturation actuel. Vous serez facturé au nouveau tarif à partir du 15/07/2023.
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cancel Subscription Modal -->
+            <div class="modal fade" id="cancelSubscriptionModal" tabindex="-1" aria-labelledby="cancelSubscriptionModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="cancelSubscriptionModalLabel">Annuler votre abonnement</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="alert alert-warning">
+                                <i class="fas fa-exclamation-triangle me-2"></i>
+                                Attention ! Si vous annulez votre abonnement, vous perdrez l'accès à toutes les fonctionnalités premium à la fin de votre cycle de facturation actuel.
+                            </div>
+                            
+                            <p>Votre abonnement sera actif jusqu'au 15/07/2023. Après cette date, votre compte sera rétrogradé vers une version gratuite avec des fonctionnalités limitées.</p>
+                            
+                            <div class="mb-4">
+                                <h6 class="fw-bold mb-2">Ce que vous perdrez :</h6>
+                                <ul>
+                                    <li>Accès à vos mentors actuels</li>
+                                    <li>Possibilité de planifier de nouvelles sessions</li>
+                                    <li>Générateur de CV</li>
+                                    <li>Historique complet des conversations</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="cancelReason" class="form-label">Pourquoi souhaitez-vous annuler ? (facultatif)</label>
+                                <select class="form-select" id="cancelReason">
+                                    <option value="" selected>Sélectionnez une raison...</option>
+                                    <option value="too_expensive">C'est trop cher</option>
+                                    <option value="not_useful">Je ne trouve pas ça utile</option>
+                                    <option value="bad_experience">Mauvaise expérience avec les mentors</option>
+                                    <option value="found_alternative">J'ai trouvé une alternative</option>
+                                    <option value="temporary">Annulation temporaire, je reviendrai plus tard</option>
+                                    <option value="other">Autre raison</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="cancelFeedback" class="form-label">Commentaires supplémentaires (facultatif)</label>
+                                <textarea class="form-control" id="cancelFeedback" rows="3" placeholder="Dites-nous comment nous pourrions améliorer notre service..."></textarea>
+                            </div>
+                            
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="confirmCancel" required>
+                                <label class="form-check-label" for="confirmCancel">
+                                    Je comprends que mon abonnement sera annulé et que j'aurai accès à un compte gratuit limité après le 15/07/2023.
+                                </label>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Retour</button>
+                            <button type="button" class="btn btn-danger" id="confirmCancelBtn" disabled>Confirmer l'annulation</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add Payment Method Modal -->
+            <div class="modal fade" id="addPaymentMethodModal" tabindex="-1" aria-labelledby="addPaymentMethodModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="addPaymentMethodModalLabel">Ajouter une méthode de paiement</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="paymentMethodForm">
+                                <div class="mb-3">
+                                    <label for="cardholderName" class="form-label">Nom du titulaire</label>
+                                    <input type="text" class="form-control" id="cardholderName" placeholder="Nom complet figurant sur la carte" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="cardNumber" class="form-label">Numéro de carte</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="cardNumber" placeholder="1234 5678 9012 3456" required>
+                                        <span class="input-group-text">
+                                            <i class="fab fa-cc-visa me-2"></i>
+                                            <i class="fab fa-cc-mastercard me-2"></i>
+                                            <i class="fab fa-cc-amex"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="expiryDate" class="form-label">Date d'expiration</label>
+                                        <input type="text" class="form-control" id="expiryDate" placeholder="MM/AA" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="cvv" class="form-label">CVV</label>
+                                        <input type="text" class="form-control" id="cvv" placeholder="123" required>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="billingAddress" class="form-label">Adresse de facturation</label>
+                                    <textarea class="form-control" id="billingAddress" rows="2" placeholder="Adresse complète" required></textarea>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="postalCode" class="form-label">Code postal</label>
+                                        <input type="text" class="form-control" id="postalCode" placeholder="75000" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="city" class="form-label">Ville</label>
+                                        <input type="text" class="form-control" id="city" placeholder="Paris" required>
+                                    </div>
+                                </div>
+                                <div class="mb-3 form-check">
+                                    <input type="checkbox" class="form-check-input" id="setDefaultPayment" checked>
+                                    <label class="form-check-label" for="setDefaultPayment">Définir comme méthode de paiement par défaut</label>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                            <button type="button" class="btn btn-primary" id="savePaymentMethodBtn">Ajouter</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="animations.js"></script>
+    <script>
+        // Toggle sidebar on mobile
+        document.getElementById('sidebarCollapse').addEventListener('click', function() {
+            document.getElementById('sidebar').classList.add('active');
+        });
+        
+        document.getElementById('sidebarCollapseBtn').addEventListener('click', function() {
+            document.getElementById('sidebar').classList.remove('active');
+        });
+
+        // Toggle Cancel Subscription button based on checkbox
+        document.getElementById('confirmCancel').addEventListener('change', function() {
+            document.getElementById('confirmCancelBtn').disabled = !this.checked;
+        });
+
+        // Handle cancel subscription form submission
+        document.getElementById('confirmCancelBtn').addEventListener('click', function() {
+            // In a real app, this would submit the cancellation request
+            const modal = bootstrap.Modal.getInstance(document.getElementById('cancelSubscriptionModal'));
+            modal.hide();
+            
+            // Show confirmation toast
+            const toastHTML = `
+                <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                    <div class="toast align-items-center text-white bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="d-flex">
+                            <div class="toast-body">
+                                <i class="fas fa-check-circle me-2"></i>
+                                Votre demande d'annulation a été prise en compte.
+                            </div>
+                            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.body.insertAdjacentHTML('beforeend', toastHTML);
+            const toastEl = document.querySelector('.toast');
+            const toast = new bootstrap.Toast(toastEl);
+            toast.show();
+            
+            // Remove toast after it's hidden
+            toastEl.addEventListener('hidden.bs.toast', function () {
+                this.parentNode.remove();
+            });
+        });
+
+        // Handle payment method form submission
+        document.getElementById('savePaymentMethodBtn').addEventListener('click', function() {
+            // In a real app, this would submit the form data
+            const modal = bootstrap.Modal.getInstance(document.getElementById('addPaymentMethodModal'));
+            modal.hide();
+            
+            // Show success toast
+            const toastHTML = `
+                <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                    <div class="toast align-items-center text-white bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="d-flex">
+                            <div class="toast-body">
+                                <i class="fas fa-check-circle me-2"></i>
+                                Nouvelle méthode de paiement ajoutée avec succès.
+                            </div>
+                            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.body.insertAdjacentHTML('beforeend', toastHTML);
+            const toastEl = document.querySelector('.toast');
+            const toast = new bootstrap.Toast(toastEl);
+            toast.show();
+            
+            // Remove toast after it's hidden
+            toastEl.addEventListener('hidden.bs.toast', function () {
+                this.parentNode.remove();
+            });
+        });
+    </script>
+</body>
+</html>

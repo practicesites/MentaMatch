@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="fr" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messagerie - MentaMatch</title>
+    <link href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Dashboard Layout with Sidebar -->
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <nav id="sidebar" class="sidebar">
+            <div class="sidebar-header">
+                <a href="dashboard.html" class="d-flex align-items-center text-decoration-none">
+                    <i class="fas fa-handshake me-2 fs-4"></i>
+                    <span class="fs-4 fw-bold">MentaMatch</span>
+                </a>
+                <button type="button" id="sidebarCollapseBtn" class="d-md-none border-0 bg-transparent text-white">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="sidebar-user text-center py-4">
+                <img src="https://ui-avatars.com/api/?name=Jean+Dupont&background=random&color=fff&size=128" alt="Jean Dupont" class="avatar mb-3">
+                <h5 class="mb-1">Jean Dupont</h5>
+                <p class="text-body-secondary mb-0 small">Mentoré • Tech</p>
+            </div>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a href="dashboard.html" class="nav-link">
+                        <i class="fas fa-home me-2"></i>
+                        <span>Tableau de bord</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="profile.html" class="nav-link">
+                        <i class="fas fa-user me-2"></i>
+                        <span>Mon profil</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="messaging.html" class="nav-link active">
+                        <i class="fas fa-comments me-2"></i>
+                        <span>Messagerie</span>
+                        <span class="badge bg-primary rounded-pill ms-auto">3</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="schedule.html" class="nav-link">
+                        <i class="fas fa-calendar-alt me-2"></i>
+                        <span>Sessions</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#resources" class="nav-link collapsed" data-bs-toggle="collapse" aria-expanded="false">
+                        <i class="fas fa-book me-2"></i>
+                        <span>Ressources</span>
+                        <i class="fas fa-chevron-down ms-auto small"></i>
+                    </a>
+                    <div class="collapse" id="resources">
+                        <ul class="nav flex-column ms-3 small">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="fas fa-file-alt me-2"></i>
+                                    <span>Générateur de CV</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="fas fa-chart-line me-2"></i>
+                                    <span>Suivi de progression</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="fas fa-graduation-cap me-2"></i>
+                                    <span>Formations</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="subscription.html" class="nav-link">
+                        <i class="fas fa-credit-card me-2"></i>
+                        <span>Abonnement</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-cog me-2"></i>
+                        <span>Paramètres</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="sidebar-footer">
+                <a href="index.html" class="btn btn-outline-light btn-sm w-100">
+                    <i class="fas fa-sign-out-alt me-2"></i>
+                    <span>Déconnexion</span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Navigation -->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top border-bottom">
+                <div class="container-fluid">
+                    <button type="button" id="sidebarCollapse" class="btn btn-link d-md-none text-light me-3">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="d-flex align-items-center">
+                        <h5 class="mb-0">Messagerie</h5>
+                    </div>
+                    <ul class="navbar-nav ms-auto d-flex flex-row">
+                        <li class="nav-item dropdown me-3">
+                            <a class="nav-link position-relative" href="#" id="notificationsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-bell"></i>
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    2
+                                </span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationsDropdown">
+                                <h6 class="dropdown-header">Notifications</h6>
+                                <a class="dropdown-item" href="#">
+                                    <div class="d-flex align-items-center">
+                                        <div class="flex-shrink-0">
+                                            <div class="avatar avatar-sm bg-info-subtle text-info rounded-circle">
+                                                <i class="fas fa-calendar-check"></i>
+                                            </div>
+                                        </div>
+                                        <div class="flex-grow-1 ms-3">
+                                            <p class="mb-0 small">Nouvelle session planifiée avec Marie Lefevre</p>
+                                            <p class="text-body-secondary small mb-0">Il y a 30 minutes</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <div class="d-flex align-items-center">
+                                        <div class="flex-shrink-0">
+                                            <div class="avatar avatar-sm bg-primary-subtle text-primary rounded-circle">
+                                                <i class="fas fa-comment-alt"></i>
+                                            </div>
+                                        </div>
+                                        <div class="flex-grow-1 ms-3">
+                                            <p class="mb-0 small">Nouveau message de Pierre Martin</p>
+                                            <p class="text-body-secondary small mb-0">Il y a 1 heure</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item text-center small" href="#">Voir toutes les notifications</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="https://ui-avatars.com/api/?name=Jean+Dupont&background=random&color=fff&size=32" alt="Jean Dupont" class="avatar-sm rounded-circle me-2">
+                                <span class="d-none d-lg-inline">Jean Dupont</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                                <li><a class="dropdown-item" href="profile.html">Mon profil</a></li>
+                                <li><a class="dropdown-item" href="#">Paramètres</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="index.html">Déconnexion</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Messaging Interface -->
+            <div class="messaging-container animate-on-scroll fade-in">
+                <div class="row g-0 h-100">
+                    <!-- Contacts Sidebar -->
+                    <div class="col-md-4 col-lg-3 border-end">
+                        <div class="contacts-header border-bottom p-3 d-flex justify-content-between align-items-center">
+                            <h6 class="mb-0">Conversations</h6>
+                            <div>
+                                <button class="btn btn-sm btn-outline-secondary me-1" title="Rechercher">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-primary" title="Nouveau message">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="contacts-list">
+                            <div class="contact-item active p-3 border-bottom" data-contact="marie">
+                                <div class="d-flex align-items-center">
+                                    <div class="position-relative">
+                                        <img src="https://ui-avatars.com/api/?name=Marie+Lefevre&background=6f42c1&color=fff&size=48" alt="Marie Lefevre" class="avatar-sm rounded-circle">
+                                        <span class="position-absolute bottom-0 end-0 badge-online"></span>
+                                    </div>
+                                    <div class="flex-grow-1 ms-3">
+                                        <div class="d-flex justify-content-between align-items-center mb-1">
+                                            <h6 class="mb-0">Marie Lefevre</h6>
+                                            <small class="text-body-secondary">11:30</small>
+                                        </div>
+                                        <p class="text-truncate mb-0 small">J'ai examiné votre portfolio et j'ai quelques suggestions pour l'améliorer.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-item p-3 border-bottom" data-contact="pierre">
+                                <div class="d-flex align-items-center">
+                                    <div class="position-relative">
+                                        <img src="https://ui-avatars.com/api/?name=Pierre+Martin&background=fd7e14&color=fff&size=48" alt="Pierre Martin" class="avatar-sm rounded-circle">
+                                        <span class="position-absolute bottom-0 end-0 badge-online"></span>
+                                    </div>
+                                    <div class="flex-grow-1 ms-3">
+                                        <div class="d-flex justify-content-between align-items-center mb-1">
+                                            <h6 class="mb-0">Pierre Martin</h6>
+                                            <small class="text-body-secondary">Hier</small>
+                                        </div>
+                                        <p class="text-truncate mb-0 small">N'oubliez pas de préparer vos questions pour notre prochaine session technique.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-item p-3 border-bottom" data-contact="sophie">
+                                <div class="d-flex align-items-center">
+                                    <div class="position-relative">
+                                        <img src="https://ui-avatars.com/api/?name=Sophie+Bernard&background=198754&color=fff&size=48" alt="Sophie Bernard" class="avatar-sm rounded-circle">
+                                        <span class="position-absolute bottom-0 end-0 badge-away"></span>
+                                    </div>
+                                    <div class="flex-grow-1 ms-3">
+                                        <div class="d-flex justify-content-between align-items-center mb-1">
+                                            <h6 class="mb-0">Sophie Bernard</h6>
+                                            <small class="text-body-secondary">Lun.</small>
+                                        </div>
+                                        <p class="text-truncate mb-0 small">Merci pour votre participation à l'atelier d'hier. Vous avez fait du bon travail !</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-item p-3 border-bottom" data-contact="thomas">
+                                <div class="d-flex align-items-center">
+                                    <div class="position-relative">
+                                        <img src="https://ui-avatars.com/api/?name=Thomas+Richard&background=0d6efd&color=fff&size=48" alt="Thomas Richard" class="avatar-sm rounded-circle">
+                                        <span class="position-absolute bottom-0 end-0 badge-offline"></span>
+                                    </div>
+                                    <div class="flex-grow-1 ms-3">
+                                        <div class="d-flex justify-content-between align-items-center mb-1">
+                                            <h6 class="mb-0">Thomas Richard</h6>
+                                            <small class="text-body-secondary">Ven.</small>
+                                        </div>
+                                        <p class="text-truncate mb-0 small">Je serais intéressé de vous avoir comme mentoré, contactez-moi si cela vous intéresse.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-item p-3" data-contact="julie">
+                                <div class="d-flex align-items-center">
+                                    <div class="position-relative">
+                                        <img src="https://ui-avatars.com/api/?name=Julie+Blanc&background=dc3545&color=fff&size=48" alt="Julie Blanc" class="avatar-sm rounded-circle">
+                                        <span class="position-absolute bottom-0 end-0 badge-offline"></span>
+                                    </div>
+                                    <div class="flex-grow-1 ms-3">
+                                        <div class="d-flex justify-content-between align-items-center mb-1">
+                                            <h6 class="mb-0">Julie Blanc</h6>
+                                            <small class="text-body-secondary">12/05</small>
+                                        </div>
+                                        <p class="text-truncate mb-0 small">J'espère que vous avez réussi à résoudre le problème dont nous avons discuté.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chat Area -->
+                    <div class="col-md-8 col-lg-9 d-flex flex-column">
+                        <div class="chat-header border-bottom p-3 d-flex justify-content-between align-items-center">
+                            <div class="d-flex align-items-center">
+                                <div class="position-relative d-inline-block me-2">
+                                    <img src="https://ui-avatars.com/api/?name=Marie+Lefevre&background=6f42c1&color=fff&size=48" alt="Marie Lefevre" class="avatar-sm rounded-circle">
+                                    <span class="position-absolute bottom-0 end-0 badge-online"></span>
+                                </div>
+                                <div>
+                                    <h6 class="mb-0">Marie Lefevre</h6>
+                                    <p class="text-body-secondary small mb-0">Développeuse Full-Stack Senior • En ligne</p>
+                                </div>
+                            </div>
+                            <div>
+                                <button class="btn btn-sm btn-outline-secondary me-1" title="Appel vidéo">
+                                    <i class="fas fa-video"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-secondary me-1" title="Appel audio">
+                                    <i class="fas fa-phone"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" title="Plus d'options">
+                                    <i class="fas fa-ellipsis-v"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item" href="schedule.html"><i class="fas fa-calendar-plus me-2"></i>Planifier une session</a></li>
+                                    <li><a class="dropdown-item" href="#"><i class="fas fa-folder me-2"></i>Fichiers partagés</a></li>
+                                    <li><a class="dropdown-item" href="#"><i class="fas fa-search me-2"></i>Rechercher dans la conversation</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash-alt me-2"></i>Supprimer la conversation</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="chat-messages p-3 flex-grow-1">
+                            <div class="message-date-separator text-center my-3">
+                                <span class="badge bg-secondary">Aujourd'hui</span>
+                            </div>
+                            <div class="message received animate-message">
+                                <div class="message-avatar">
+                                    <img src="https://ui-avatars.com/api/?name=Marie+Lefevre&background=6f42c1&color=fff&size=48" alt="Marie Lefevre" class="rounded-circle">
+                                </div>
+                                <div class="message-content">
+                                    <div class="message-bubble">
+                                        Bonjour Jean, j'espère que vous allez bien. J'ai pris le temps d'examiner votre portfolio hier soir.
+                                    </div>
+                                    <div class="message-time">10:15</div>
+                                </div>
+                            </div>
+                            <div class="message received animate-message">
+                                <div class="message-avatar">
+                                    <img src="https://ui-avatars.com/api/?name=Marie+Lefevre&background=6f42c1&color=fff&size=48" alt="Marie Lefevre" class="rounded-circle">
+                                </div>
+                                <div class="message-content">
+                                    <div class="message-bubble">
+                                        C'est du bon travail, mais j'ai quelques suggestions pour l'améliorer et le rendre plus attractif pour les recruteurs.
+                                    </div>
+                                    <div class="message-time">10:16</div>
+                                </div>
+                            </div>
+                            <div class="message sent animate-message">
+                                <div class="message-content">
+                                    <div class="message-bubble">
+                                        Bonjour Marie, merci d'avoir pris le temps de regarder mon portfolio ! Je serais très intéressé par vos suggestions.
+                                    </div>
+                                    <div class="message-time">10:20</div>
+                                </div>
+                            </div>
+                            <div class="message received animate-message">
+                                <div class="message-avatar">
+                                    <img src="https://ui-avatars.com/api/?name=Marie+Lefevre&background=6f42c1&color=fff&size=48" alt="Marie Lefevre" class="rounded-circle">
+                                </div>
+                                <div class="message-content">
+                                    <div class="message-bubble">
+                                        Super ! Tout d'abord, je pense que vous devriez mettre davantage en avant vos projets personnels. Ce sont eux qui démontrent le mieux votre passion et vos compétences.
+                                    </div>
+                                    <div class="message-time">10:25</div>
+                                </div>
+                            </div>
+                            <div class="message received animate-message">
+                                <div class="message-avatar">
+                                    <img src="https://ui-avatars.com/api/?name=Marie+Lefevre&background=6f42c1&color=fff&size=48" alt="Marie Lefevre" class="rounded-circle">
+                                </div>
+                                <div class="message-content">
+                                    <div class="message-bubble">
+                                        Ensuite, j'ai remarqué que vous n'avez pas inclus de section sur vos soft skills. C'est tout aussi important que les compétences techniques pour beaucoup d'employeurs.
+                                    </div>
+                                    <div class="message-time">10:26</div>
+                                </div>
+                            </div>
+                            <div class="message received animate-message">
+                                <div class="message-avatar">
+                                    <img src="https://ui-avatars.com/api/?name=Marie+Lefevre&background=6f42c1&color=fff&size=48" alt="Marie Lefevre" class="rounded-circle">
+                                </div>
+                                <div class="message-content">
+                                    <div class="message-bubble">
+                                        Enfin, avez-vous pensé à ajouter des témoignages de personnes avec qui vous avez travaillé ? Cela pourrait renforcer votre crédibilité.
+                                    </div>
+                                    <div class="message-time">10:27</div>
+                                </div>
+                            </div>
+                            <div class="message sent animate-message">
+                                <div class="message-content">
+                                    <div class="message-bubble">
+                                        Ce sont d'excellentes suggestions ! Je n'avais pas pensé aux témoignages. Je vais retravailler mon portfolio en tenant compte de vos conseils.
+                                    </div>
+                                    <div class="message-time">10:35</div>
+                                </div>
+                            </div>
+                            <div class="message sent animate-message">
+                                <div class="message-content">
+                                    <div class="message-bubble">
+                                        Quels types de soft skills pensez-vous que je devrais mettre en avant ?
+                                    </div>
+                                    <div class="message-time">10:36</div>
+                                </div>
+                            </div>
+                            <div class="message received animate-message">
+                                <div class="message-avatar">
+                                    <img src="https://ui-avatars.com/api/?name=Marie+Lefevre&background=6f42c1&color=fff&size=48" alt="Marie Lefevre" class="rounded-circle">
+                                </div>
+                                <div class="message-content">
+                                    <div class="message-bubble">
+                                        Je vous suggère de mettre en avant votre capacité à travailler en équipe, votre esprit analytique, et votre aptitude à résoudre des problèmes. Ce sont des qualités très recherchées dans le développement web.
+                                    </div>
+                                    <div class="message-time">10:40</div>
+                                </div>
+                            </div>
+                            <div class="message received animate-message">
+                                <div class="message-avatar">
+                                    <img src="https://ui-avatars.com/api/?name=Marie+Lefevre&background=6f42c1&color=fff&size=48" alt="Marie Lefevre" class="rounded-circle">
+                                </div>
+                                <div class="message-content">
+                                    <div class="message-bubble">
+                                        Souhaitez-vous que nous planifiions une session vidéo pour passer en revue votre portfolio ensemble ? Je pourrais vous donner des feedback plus détaillés.
+                                    </div>
+                                    <div class="message-time">10:41</div>
+                                </div>
+                            </div>
+                            <div class="message sent animate-message">
+                                <div class="message-content">
+                                    <div class="message-bubble">
+                                        Ce serait parfait ! Je suis disponible demain après-midi ou jeudi matin si cela vous convient ?
+                                    </div>
+                                    <div class="message-time">10:45</div>
+                                </div>
+                            </div>
+                            <div class="message received animate-message">
+                                <div class="message-avatar">
+                                    <img src="https://ui-avatars.com/api/?name=Marie+Lefevre&background=6f42c1&color=fff&size=48" alt="Marie Lefevre" class="rounded-circle">
+                                </div>
+                                <div class="message-content">
+                                    <div class="message-bubble">
+                                        Jeudi matin me conviendrait parfaitement, disons 10h ? Je vous enverrai un lien pour la visioconférence.
+                                    </div>
+                                    <div class="message-time">11:30</div>
+                                </div>
+                            </div>
+                            <div class="message-status text-center my-2">
+                                <span class="text-body-secondary small">Marie est en train d'écrire...</span>
+                            </div>
+                        </div>
+
+                        <div class="chat-input p-3 border-top">
+                            <form id="messageForm" class="d-flex align-items-center gap-2">
+                                <button type="button" class="btn btn-outline-secondary rounded-circle flex-shrink-0" title="Joindre un fichier">
+                                    <i class="fas fa-paperclip"></i>
+                                </button>
+                                <div class="position-relative flex-grow-1">
+                                    <textarea class="form-control" id="messageInput" rows="1" placeholder="Écrivez votre message..."></textarea>
+                                    <button type="button" class="btn btn-link position-absolute top-50 end-0 translate-middle-y text-body-secondary" title="Emoji">
+                                        <i class="far fa-smile"></i>
+                                    </button>
+                                </div>
+                                <button type="submit" class="btn btn-primary rounded-circle flex-shrink-0" title="Envoyer">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="animations.js"></script>
+    <script>
+        // Toggle sidebar on mobile
+        document.getElementById('sidebarCollapse').addEventListener('click', function() {
+            document.getElementById('sidebar').classList.add('active');
+        });
+        
+        document.getElementById('sidebarCollapseBtn').addEventListener('click', function() {
+            document.getElementById('sidebar').classList.remove('active');
+        });
+
+        // Auto-resize textarea
+        const messageInput = document.getElementById('messageInput');
+        messageInput.addEventListener('input', function() {
+            this.style.height = 'auto';
+            this.style.height = (this.scrollHeight) + 'px';
+            // Limit to 5 rows
+            if (this.scrollHeight > (20 * 5)) {
+                this.style.overflowY = 'auto';
+            } else {
+                this.style.overflowY = 'hidden';
+            }
+        });
+
+        // Handle message submission
+        document.getElementById('messageForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const messageText = messageInput.value.trim();
+            if (messageText) {
+                const chatMessages = document.querySelector('.chat-messages');
+                
+                // Create message element
+                const message = document.createElement('div');
+                message.className = 'message sent animate-message';
+                message.innerHTML = `
+                    <div class="message-content">
+                        <div class="message-bubble">
+                            ${messageText}
+                        </div>
+                        <div class="message-time">${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</div>
+                    </div>
+                `;
+                
+                // Add message to chat
+                chatMessages.appendChild(message);
+                
+                // Clear input
+                messageInput.value = '';
+                messageInput.style.height = 'auto';
+                
+                // Scroll to bottom
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+                
+                // Show typing indicator (simulate response)
+                setTimeout(() => {
+                    document.querySelector('.message-status').classList.remove('d-none');
+                    
+                    // Simulate response after delay
+                    setTimeout(() => {
+                        document.querySelector('.message-status').classList.add('d-none');
+                        
+                        // Create response message
+                        const response = document.createElement('div');
+                        response.className = 'message received animate-message';
+                        response.innerHTML = `
+                            <div class="message-avatar">
+                                <img src="https://ui-avatars.com/api/?name=Marie+Lefevre&background=6f42c1&color=fff&size=48" alt="Marie Lefevre" class="rounded-circle">
+                            </div>
+                            <div class="message-content">
+                                <div class="message-bubble">
+                                    Parfait, c'est noté ! Je vous enverrai les détails de connexion le jour même. À jeudi !
+                                </div>
+                                <div class="message-time">${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</div>
+                            </div>
+                        `;
+                        
+                        // Add response to chat
+                        chatMessages.appendChild(response);
+                        
+                        // Scroll to bottom
+                        chatMessages.scrollTop = chatMessages.scrollHeight;
+                    }, 2000);
+                }, 1000);
+            }
+        });
+
+        // Handle contact selection
+        document.querySelectorAll('.contact-item').forEach(item => {
+            item.addEventListener('click', function() {
+                // Remove active class from all contacts
+                document.querySelectorAll('.contact-item').forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked contact
+                this.classList.add('active');
+                
+                // In a real app, would load conversation with this contact
+                // For this demo, just show a toast
+                if (this.getAttribute('data-contact') !== 'marie') {
+                    const contactName = this.querySelector('h6').textContent;
+                    const toastHTML = `
+                        <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                            <div class="toast align-items-center text-white bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                                <div class="d-flex">
+                                    <div class="toast-body">
+                                        Conversation avec ${contactName} chargée.
+                                    </div>
+                                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    
+                    document.body.insertAdjacentHTML('beforeend', toastHTML);
+                    const toastEl = document.querySelector('.toast');
+                    const toast = new bootstrap.Toast(toastEl);
+                    toast.show();
+                    
+                    // Remove toast after it's hidden
+                    toastEl.addEventListener('hidden.bs.toast', function () {
+                        this.parentNode.remove();
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
